@@ -1,0 +1,4 @@
+Module/secret.json
+.pyc
+venv/
+Module/__pycache__
