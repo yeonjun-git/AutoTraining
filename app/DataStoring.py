@@ -38,3 +38,6 @@ for idx in range(page*per_page):
     
 postgresDB.commit()
 
+# 4. connect shutdown
+cursor.close()
+postgresDB.close()
