@@ -13,12 +13,17 @@ title, link, desc, pubdate = NewsData.DataList("금리", page, per_page)
 
 # 2. Connect Postgres
 from Module.config import get_secret
+host = get_secret("host")
+dbname = get_secret("dbname")
+user = get_secret("user")
+port = get_secret("port")
 password = get_secret("postgresDB_password")
+
 
 import  psycopg2
 postgresDB = psycopg2.connect(
-    host = 'localhost', dbname = 'postgres',
-    user = 'postgres', password = password, port = 5432
+    host = host, dbname = dbname,
+    user = user, password = password, port = port
     )
 
 cursor = postgresDB.cursor()
