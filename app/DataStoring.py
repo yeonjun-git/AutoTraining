@@ -32,8 +32,8 @@ cursor = postgresDB.cursor()
 # 3. Storing data to DB
 for idx in range(page*per_page):
     cursor.execute(
-        "insert into airflow_pjt.news_data values (%s, %s, %s, %s, %s);",
-        (idx, title[idx], link[idx], desc[idx], pubdate[idx])
+        "insert into airflow_pjt.news_data (title, link, description, pubdate) values (%s, %s, %s, %s);",
+        (title[idx], link[idx], desc[idx], pubdate[idx])
     )
     
 postgresDB.commit()
