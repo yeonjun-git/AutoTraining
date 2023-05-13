@@ -1,18 +1,22 @@
+import sys
+from os import path
+using_path = path.dirname(path.dirname(path.abspath(__file__)))
+Module_path = using_path + '/' + 'Module'
+
+sys.path.append(Module_path)
 
 # 1. Crawling Data
-import os, sys
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from Module.Crawling import Dataset
+
+from Crawling import Dataset
 NewsData = Dataset()
 page = 10
 per_page = 10
 title, link, desc, pubdate = NewsData.DataList("금리", page, per_page)
 
-
-
 # 2. Connect Postgres
-from Module.config import get_secret
+
+from config import get_secret
 host = get_secret("host")
 dbname = get_secret("dbname")
 user = get_secret("user")
@@ -27,7 +31,6 @@ postgresDB = psycopg2.connect(
     )
 
 cursor = postgresDB.cursor()
-
 
 # 3. Storing data to DB
 for idx in range(page*per_page):

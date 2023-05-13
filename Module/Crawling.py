@@ -2,7 +2,7 @@
 
 import aiohttp
 import asyncio
-from Module.config import get_secret
+from config import get_secret
 
 class NaverNews:
 
@@ -21,7 +21,7 @@ class NaverNews:
     
     @staticmethod
     async def fetch(session, url, headers):
-        async with session.get(url, headers = headers) as response:
+        async with session.get(url, ssl = False, headers = headers) as response:
             if response.status == 200:
                 result = await response.json()
                 return result['items']
@@ -42,8 +42,6 @@ class Dataset:
 
     def DataList(self, keyword, page, per_page):
         crawling = NaverNews()
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-
         data = crawling.run(keyword, page, per_page)
         title, link, desc, pubdate = [], [], [], []
         for i in range(page):
