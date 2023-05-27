@@ -1,14 +1,12 @@
 import sys
-from os import path
-using_path = path.dirname(path.dirname(path.abspath(__file__)))
-Module_path = using_path + '/' + 'Module'
-
-sys.path.append(Module_path)
+import os
+module_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+sys.path.append(module_path)
 
 # 1. Crawling Data
 
 
-from Crawling import Dataset
+from Module.Crawling import Dataset
 NewsData = Dataset()
 page = 10
 per_page = 10
@@ -16,7 +14,7 @@ title, link, desc, pubdate = NewsData.DataList("금리", page, per_page)
 
 # 2. Connect Postgres
 
-from config import get_secret
+from Module.config import get_secret
 host = get_secret("host")
 dbname = get_secret("dbname")
 user = get_secret("user")

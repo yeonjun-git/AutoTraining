@@ -1,8 +1,13 @@
 # Naver news Crawling Module
+import sys
+import os
+module_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+sys.path.append(module_path)
+
 
 import aiohttp
 import asyncio
-from config import get_secret
+from Module.config import get_secret
 
 class NaverNews:
 
