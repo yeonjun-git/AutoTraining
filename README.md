@@ -1,14 +1,23 @@
-# autotraining
+# Studying airflow with docker
 
-<<<<<<< HEAD
+### you need to do this:
+- install requirements.txt
+    - pip install -r requirements.txt
 
-## Personal project for training 
+- install virtual env
+    - python3 -m venv airflow_env
 
-## Studying Airflow
+- write Module/secret.json
+    - like this:
+    - {
+    -    "naver_api_id": "open api, you can change if you want. ref Module/Crawling.py",
+    -    "naver_api_pw": "open api, you can change if you want. ref Module/Crawling.py",
+    -    "postgresDB_password": "postgresql local db account pw",
+    -    "host": ""postgresql local db host"",
+    -    "dbname": ""postgresql local dbname that you're using"",
+    -    "user": "postgresql user name",
+    -    "port": "postgresql db port that you're using"
+    - }
 
-=======
-# code will update at middle branch
-## Personal project for training 
-## before join a company of best
-# 아 신나
->>>>>>> 5fce37b (Don't read)
+- teminal command execute
+    - export AIRFLOW_HOME="$(pwd)"

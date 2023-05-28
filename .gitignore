@@ -1,5 +1,8 @@
 Module/secret.json
 .pyc
 auto_env/
-Module/__pycache__
+__pycache__
 .DS_Store
+.pid
+dag_processor_manager/
+dag_id=dbsave_training/
