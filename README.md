@@ -20,4 +20,7 @@
     - }
 
 - teminal command execute
+    - cd ../autotraining/airflow
+          --> (maybe exists difference path of each user,
+             the path '/autotraining/airflow' is important)
     - export AIRFLOW_HOME="$(pwd)"
